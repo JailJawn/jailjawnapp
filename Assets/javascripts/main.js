@@ -9,6 +9,7 @@ $(document).ready(function() {
         //assign the data from firebase to a  variable
         firebaseData = snapshot.val();
         console.log(formatDateChart(firebaseData));
+        console.log(firebaseData);
 
         var chart = AmCharts.makeChart("chartdiv", {
             "type": "serial",
@@ -99,7 +100,7 @@ $(document).ready(function() {
 
 function formatDateChart(data){
     //type checking
-    if(typeof(data) === "undefined"){
+    if(data === "undefined"){
         return "error, data is undefined";
     }
     else if(typeof(data) !== "object"){
@@ -121,3 +122,4 @@ function formatDateChart(data){
         return formatted;
     }
 }
+
