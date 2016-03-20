@@ -12,12 +12,28 @@ $(document).ready(function() {
                 "marginLeft": 40,
                 "autoMarginOffset": 20,
                 "dataDateFormat": "YYYY-MM-DD",
+               "titles": [{
+             "text": "Daily Census between December 2013 and Today"
+             }],
                 "valueAxes": [{
                     "id": "v1",
                     "axisAlpha": 0,
                     "position": "left",
                     "ignoreAxisWidth": true
                 }],
+                "valueAxes": [{
+                 "position": "left",
+                 "axisAlpha": 0,
+                 "dashLength": 1,
+                 "offset": 15,
+                 "title": "Prison Population "
+             }, {
+                 "axisAlpha": 0,
+                 "dashLength": 1,
+                 "offset": -100,
+                 "position": "bottom",
+                 "title": "Time Length",                
+             }],
                 "balloon": {
                     "borderThickness": 1,
                     "shadowAlpha": 0
@@ -102,6 +118,9 @@ $(document).ready(function() {
                     "marginRight": 100,
                     "autoMargins": false
                 },
+                "titles": [{
+                "text": "Average Census between December 2013 and Today"
+                }],
                 "innerRadius": "30%",
                 "defs": {
                     "filter": [{
@@ -153,10 +172,15 @@ $(document).ready(function() {
 
             var prisonChart = AmCharts.makeChart("prisonchart", {
                 type: "stock",
+                theme: "light",
                 pathToImages: "//cdn.amcharts.com/lib/3/images/",
                 dataSets: formatPrisonData(data),
                 panels: [{
-                    title: "Prison populations by facility, over time",
+                     "titles": [{
+                     "text": "Prison populations by facility, over time"
+                    }],
+                    /*title: 
+                    "Prison populations by facility, over time",*/
                     stockGraphs: [{
                         valueField: "inmates",
                         comparable: true
