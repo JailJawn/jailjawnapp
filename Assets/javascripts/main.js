@@ -14,15 +14,33 @@ $(document).ready(function() {
         var chart = AmCharts.makeChart("chartdiv", {
             "type": "serial",
             "theme": "light",
+            "titles": [{
+            "text": "Daily Census between December 2013 and Today"
+            }],
             "marginRight": 40,
             "marginLeft": 40,
             "autoMarginOffset": 20,
             "dataDateFormat": "YYYY-MM-DD",
-            "valueAxes": [{
+            /*"valueAxes": [{
                 "id": "v1",
                 "axisAlpha": 0,
                 "position": "left",
                 "ignoreAxisWidth":true
+            }],
+            */
+            "valueAxes": [{
+                "position": "left",
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "offset": 15,
+                "title": "Total Number of Inmates "
+            }, {
+                "axisAlpha": 0,
+                "dashLength": 1,
+                "offset": -100,
+                "position": "bottom",
+                "title": "Time Length",
+                
             }],
             "balloon": {
                 "borderThickness": 1,
@@ -44,6 +62,7 @@ $(document).ready(function() {
                 "title": "red line",
                 "useLineColorForBulletBorder": true,
                 "valueField": "value",
+                "valueAxis": "Amount",
                 "balloonText": "<span style='font-size:18px;'>[[value]]</span>"
             }],
             "chartScrollbar": {

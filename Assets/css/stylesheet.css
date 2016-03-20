@@ -2,7 +2,15 @@ html, body{
     width: 100%;
     height: 100%;
 }
+
+#chartTitle{
+        font-size: 32px;
+        padding-bottom: .1em;
+    
+}
+
 #chartdiv{
-    height: 600px;
+    height: 650px;
     width: 100%;
+    background: #FFFFFF;
 }
