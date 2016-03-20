@@ -1,14 +1,12 @@
 "use strict";
 // Make a new firebase object with our firebase URL, instantiate data variable
 var firebase = new Firebase("https://burning-heat-7610.firebaseio.com/");
-//document.ready event handler (eg when the document is ready)
-$(document).ready(function() {
-    var firebaseData = "";
     //firebase event handler, when it receives a value do...
     firebase.on("value", function (snapshot) {
         //assign the data from firebase to a  variable
-        firebaseData = snapshot.val();
-
+        var firebaseData = snapshot.val();
+        console.log(formatPrisonData(firebaseData));
+        //line chart
         var chart = AmCharts.makeChart("chartdiv", {
             "type": "serial",
             "theme": "light",
@@ -92,7 +90,9 @@ $(document).ready(function() {
         function zoomChart() {
             chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
         }
+        //end line chart
 
+        //pie chart
         var pichart = AmCharts.makeChart("pichart", {
             "type": "pie",
             "startDuration": 0,
@@ -149,10 +149,56 @@ $(document).ready(function() {
             var wedge = e.dataItem.wedge.node;
             wedge.parentNode.appendChild(wedge);
         }
+        //end pie chart
 
+        var prisonChart = AmCharts.makeChart("prisonchart", {
+            type: "stock",
+            pathToImages: "//cdn.amcharts.com/lib/3/images/",
+            dataSets: formatPrisonData(firebaseData),
+            panels: [{
+                title: "Panel 1",
+                stockGraphs: [{
+                    valueField: "inmates",
+                    comparable: true
+                }],
+                stockLegend: {}
+            }],
+            panelsSettings: {
+              recalculateToPercents: "never"
+            },
+            chartCursorSettings: {
+                valueLineEnabled: true,
+                valueLineBalloonEnabled: true
+            },
+            dataSetSelector: {
+                position: "left"
+            },
+            periodSelector: {
+                position: "left",
+                inputFieldsEnabled: false,
+                periods: [{
+                    period: "DD",
+                    count: 10,
+                    label: "10 days"
+                }, {
+                    period: "MM",
+                    count: 1,
+                    label: "1 month"
+                }, {
+                    period: "YYYY",
+                    count: 1,
+                    label: "1 year",
+                    selected: true
+                }, {
+                    period: "YTD",
+                    label: "YTD"
+                }, {
+                    period: "MAX",
+                    label: "MAX"
+                }]
+            }
+        });
     });
-
-});
 
 function formatDateChart(data){
     //type checking
@@ -164,7 +210,7 @@ function formatDateChart(data){
     }
     else{
         //instantiate array
-        var formatted = [];
+        var formatted = new Array;
         //iterate through the data
         for(var prop in data){
             // send each object literal to the formatted array
@@ -190,7 +236,6 @@ function formatSexChart(data){
         //instantiate total males and females for increment
         var totalMale = 0, totalFemale = 0, total = 0, avgM = 0, avgF = 0;
         for(var prop in data){
-            console.log(data[prop]["Total "]["Adult Male"]);
             totalMale += parseInt(data[prop]["Total "]["Adult Male"]);
             totalFemale += parseInt(data[prop]["Total "]["Adult Female"]);
             total++;
@@ -210,3 +255,55 @@ function formatSexChart(data){
     }
 }
 
+function separatePrisons(data){
+    if(!data){
+        return "Error, data is undefined"
+    }
+    else if(typeof(data) !== "object"){
+        return "error, data should be an object"
+    }else{
+        var prisons = {};
+        /*
+            The JavaScript Object prototype doesn't include an iterator method.
+            It does include the keys() method which take an object as an argument and returns
+            the keys.
+
+            Arrays have iterative methods like .forEach, .map, and to a lesser extent: .every and .filter
+
+            JavaScript object literals are kind of like associative arrays, maps, or key-value pairs
+         */
+        Object.keys(data).forEach(function(key){  //Iterate through each value in the data set (each value is an object that contains an object)
+            Object.keys(data[key]).forEach(function(prop){ //Iterate through each value's value (again, each is an object)
+                if(!prisons.hasOwnProperty(prop)){ //If prisons doesn't have a property that is equal to the name of a prison, make it a property
+                    prisons[prop] = [{
+                        date: new Date(key),
+                        inmates: data[key][prop]["Total Count"]
+                    }]
+                }else{//else add a new object literal to the end of the array
+                    prisons[prop].push({
+                        date: new Date(key),
+                        inmates: data[key][prop]["Total Count"]
+                    })
+                }
+            })
+        });
+        return prisons;
+    }
+}
+
+function formatPrisonData(data){
+    var prisons = separatePrisons(data);
+    var datasets = new Array;
+    for(var prop in prisons){
+        datasets.push({
+            title: prop,
+            fieldMappings: [{
+                fromField: "inmates",
+                toField: "inmates"
+            }],
+            dataProvider: prisons[prop],
+            categoryField: "date"
+        })
+    }
+    return datasets;
+}
