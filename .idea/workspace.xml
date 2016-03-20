@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b077573a-46ab-4e4c-8baf-75a3a15c8d27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/css/stylesheet.css" afterPath="$PROJECT_DIR$/Assets/css/stylesheet.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/javascripts/main.js" afterPath="$PROJECT_DIR$/Assets/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="jailjawnapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,14 +36,14 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/javascripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8662207">
-              <caret line="199" column="11" selection-start-line="199" selection-start-column="11" selection-end-line="199" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.5819398">
+              <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
               <folding>
                 <element signature="e#498#3014#0" expanded="false" />
                 <element signature="e#3326#4628#0" expanded="false" />
                 <element signature="n#!!block;n#formatDateChart#0" expanded="false" />
                 <element signature="n#!!block;n#formatSexChart#0" expanded="false" />
-                <marker date="1458450530000" expanded="true" signature="1609:1624" placeholder="..." />
+                <marker date="1458450736000" expanded="true" signature="1609:1624" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -396,7 +393,7 @@
             <element signature="e#3326#4628#0" expanded="false" />
             <element signature="n#!!block;n#formatDateChart#0" expanded="false" />
             <element signature="n#!!block;n#formatSexChart#0" expanded="false" />
-            <marker date="1458450530000" expanded="true" signature="1609:1624" placeholder="..." />
+            <marker date="1458450736000" expanded="true" signature="1609:1624" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -501,14 +498,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/javascripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8662207">
-          <caret line="199" column="11" selection-start-line="199" selection-start-column="11" selection-end-line="199" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.5819398">
+          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
           <folding>
             <element signature="e#498#3014#0" expanded="false" />
             <element signature="e#3326#4628#0" expanded="false" />
             <element signature="n#!!block;n#formatDateChart#0" expanded="false" />
             <element signature="n#!!block;n#formatSexChart#0" expanded="false" />
-            <marker date="1458450530000" expanded="true" signature="1609:1624" placeholder="..." />
+            <marker date="1458450736000" expanded="true" signature="1609:1624" placeholder="..." />
           </folding>
         </state>
       </provider>

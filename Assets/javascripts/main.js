@@ -156,7 +156,7 @@ var firebase = new Firebase("https://burning-heat-7610.firebaseio.com/");
             pathToImages: "//cdn.amcharts.com/lib/3/images/",
             dataSets: formatPrisonData(firebaseData),
             panels: [{
-                title: "Panel 1",
+                title: "Prison populations by facility, over time",
                 stockGraphs: [{
                     valueField: "inmates",
                     comparable: true
@@ -199,7 +199,7 @@ var firebase = new Firebase("https://burning-heat-7610.firebaseio.com/");
             }
         });
     });
-
+//Formats chart for all-time prison info
 function formatDateChart(data){
     //type checking
     if(!data){
