@@ -10,6 +10,16 @@
 	<link rel="stylesheet" href="gumba-0.1.0/css/main.css">
 	 <link href="Assets/css/stylesheet.css" type="text/css" rel="stylesheet">
 
+	 <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-75330860-1', 'auto');
+	  ga('send', 'pageview');
+            </script> 
+
 	<script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
     <script src="bower_components/amcharts3/amcharts/amcharts.js"></script>
     <script src="bower_components/amcharts3/amcharts/serial.js"></script>
@@ -22,8 +32,6 @@
 
 </head>
 <body>
-
-
 	<header>
 		<div id="logo-container">
 			<div id="logo"><a href="/">Jail Jawn</a></div>
@@ -31,19 +39,6 @@
 		</div>
 
 	</header>	
-
-		
-
-<!-- 		<nav>
-			<ul>
-				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li> 
-				<li><a href="mailto:your@address.com" class="bordered">Contact</a></li>
-			</ul>
-		</nav> -->
-
-	
 
 	<div id="content">
 		<section class="row">
@@ -53,36 +48,33 @@
 			</div>
 		</section>
 
+		<!--
 		<section class="row">
 			<div class="col">
 				<h2>Description</h2>
 				<p>
-					Jail Jawn creates a graph from Philadelphia's prison population data. The raw data is scraped from the web, provided as "Daily Census" on phila.gov/prisons. The goal of this project is to save this data over time, as the website from which the data is pulled provides no archived data, and provide a visualization to easily understand the data. The data scraping has been automated to retrieve this data daily and store it using Firebase.
+					Jail Jawn is made up of a scraper, an API, and front-end visualizations. The raw data is scraped from the web, provided as "Daily Census" on phila.gov/prisons. The goal of this project is to save this data over time, as the website from which the data is pulled provides no archived data, and provide quick, easy access in addition to a visualization to easily understand the data. The data scraping has been automated to retrieve this data daily and store it using Firebase. 
 				</p>
 			</div>
 			<div class="col" id="pichart">
 			</div>
 		</section>
-
-		<!--
-		<section class="intro">
-			<h1>Hello, <span class="nl"></span>we are here to help you.</h1> 
-			<p>
-				Jail Jawn creates a graph from Philadelphia's prison population data. The raw data is scraped from the web, provided as "Daily Census" on phila.gov/prisons. The goal of this project is to save this data over time, as the website from which the data is pulled provides no archived data, and provide a visualization to easily understand the data. The data scraping has been automated to retrieve this data daily and store it using Firebase.
-			</p>
-		</section>
 		-->
 
-		<!--
+		
 		<section class="row">
 
 			<div class="photo-grid">
-				<a href="img/example-photo-b.jpg" rel="lightbox" class="col-2"><img src="img/example-photo-b.jpg" alt="Example photo"></a>
-				<a href="img/example-photo-c.jpg" rel="lightbox" class="col-2"><img src="img/example-photo-c.jpg" alt="Example photo"></a>
-				<a href="img/example-photo-a.jpg" rel="lightbox" class="col-1"><img src="img/example-photo-a.jpg" alt="Example photo"></a>
-			</div>
+				<div class="col-3"><p>
+					<h1>Description</h1>
+					Jail Jawn is made up of a scraper, an API, and front-end visualizations. The raw data is scraped from the web, provided as "Daily Census" on phila.gov/prisons. The goal of this project is to save this data over time, as the website from which the data is pulled provides no archived data, and provide quick, easy access in addition to a visualization to easily understand the data. The data scraping has been automated to retrieve this data daily and store it using Firebase. 
+				</p> </div>
+				
+				<div class="col-4"> 
+					<div id="pichart"> </div>
+					</div>
 		</section>
-		-->
+		
 
 		<section class="row">
 			<div class="col-full" id="prisonchart">

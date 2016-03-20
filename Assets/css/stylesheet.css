@@ -5,12 +5,15 @@ html, body{
 #chartdiv{
     height: 600px;
     width: 100%;
+    background: #FFFFFF;
 }
 #pichart{
     height: 500px;
-    width: 50%;
+    width: 100%;
+    background: #FFFFFF;
 }
 #prisonchart{
     height: 600px;
     width: 90%;
+    background: #FFFFFF;
 }
