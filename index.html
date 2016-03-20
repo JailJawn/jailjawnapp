@@ -11,9 +11,10 @@
 	 <link href="Assets/css/stylesheet.css" type="text/css" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
-    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
     <script src="bower_components/amcharts3/amcharts/amcharts.js"></script>
     <script src="bower_components/amcharts3/amcharts/serial.js"></script>
+	<script src="bower_components/amcharts3/amcharts/pie.js"></script>
+	<script src="https://cdn.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>
     <script src="bower_components/amcharts3/amcharts/themes/light.js"></script>
     <script src="Assets/javascripts/main.js"></script>
 
@@ -51,11 +52,7 @@
 					Jail Jawn creates a graph from Philadelphia's prison population data. The raw data is scraped from the web, provided as "Daily Census" on phila.gov/prisons. The goal of this project is to save this data over time, as the website from which the data is pulled provides no archived data, and provide a visualization to easily understand the data. The data scraping has been automated to retrieve this data daily and store it using Firebase.
 				</p>
 			</div>
-			<div class="col">
-				<h2>Second Graph</h2>
-				<p>
-					Goes in this location.
-				</p>
+			<div class="col" id="pichart">
 			</div>
 		</section>
 
@@ -80,10 +77,7 @@
 		-->
 
 		<section class="row">
-			<div class="col-full">
-				<p>
-					Third wide graph goes in this location.
-				</p>
+			<div class="col-full" id="prisonchart">
 			</div>
 		</section>
 

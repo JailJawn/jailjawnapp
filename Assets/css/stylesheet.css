@@ -6,3 +6,11 @@ html, body{
     height: 600px;
     width: 100%;
 }
+#pichart{
+    height: 500px;
+    width: 50%;
+}
+#prisonchart{
+    height: 600px;
+    width: 90%;
+}
