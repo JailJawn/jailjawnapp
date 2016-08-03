@@ -239,11 +239,13 @@ function formatDateChart(data){
         //iterate through the data
         for(var prop in data){
             // send each object literal to the formatted array
-            formatted.push({
-                "date": prop,
-                "value": data[prop]["Total "]["Juvenile Male"]
-                //currently the API displays total as "Juvenile Male", this will be fixed in future iterations
-            });
+            if(data[prop]["Total "]){
+                formatted.push({
+                    "date": prop,
+                    "value": data[prop]["Total "]["Juvenile Male"]
+                    //currently the API displays total as "Juvenile Male", this will be fixed in future iterations
+                });
+            }
         }
         //return array
         return formatted;
@@ -261,9 +263,11 @@ function formatSexChart(data){
         //instantiate total males and females for increment
         var totalMale = 0, totalFemale = 0, total = 0, avgM = 0, avgF = 0;
         for(var prop in data){
-            totalMale += parseInt(data[prop]["Total "]["Adult Male"]);
-            totalFemale += parseInt(data[prop]["Total "]["Adult Female"]);
-            total++;
+            if(data[prop]["Total "]){
+                totalMale += parseInt(data[prop]["Total "]["Adult Male"]);
+                totalFemale += parseInt(data[prop]["Total "]["Adult Female"]);
+                total++;
+            }
         }
         avgM = totalMale/total;
         avgF = totalFemale/total;
