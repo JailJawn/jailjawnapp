@@ -2,8 +2,14 @@
 $(document).ready(function() {
     var data;
     $.get('http://jailjawnapi.herokuapp.com/all')
-        .done(function (res) {
-            data = JSON.parse(res);
+        .done(function (res) 
+              try{
+                data = JSON.parse(res);
+              }catch(e){
+                console.log(data);
+                console.log(e);
+                data = res;
+              }
 
             var chart = AmCharts.makeChart("chartdiv", {
                 "type": "serial",
