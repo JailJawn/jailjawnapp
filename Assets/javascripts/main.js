@@ -3,7 +3,13 @@ $(document).ready(function() {
     var data;
     $.get('http://jailjawnapi.herokuapp.com/all')
         .done(function (res) {
-            data = JSON.parse(res);
+            try{
+                data = JSON.parse(res);
+            }catch(e){
+                console.log(e);
+                console.log(res);
+                data = res;
+            }
 
             var chart = AmCharts.makeChart("chartdiv", {
                 "type": "serial",
