@@ -241,7 +241,7 @@ function formatDateChart(data){
     }
     else{
         //instantiate array
-        var formatted = new Array;
+        var formatted = new Array();
         //iterate through the data
         for(var prop in data){
             // send each object literal to the formatted array
@@ -249,6 +249,12 @@ function formatDateChart(data){
                 formatted.push({
                     "date": prop,
                     "value": data[prop]["Total "]["Juvenile Male"]
+                    //currently the API displays total as "Juvenile Male", this will be fixed in future iterations
+                });
+            }else if(data[prop]["Total"]){
+               formatted.push({
+                    "date": prop,
+                    "value": data[prop]["Total"]["Juvenile Male"]
                     //currently the API displays total as "Juvenile Male", this will be fixed in future iterations
                 });
             }
